@@ -3,6 +3,7 @@
   background-color: white;
   border-radius: 50%;
   cursor: pointer;
+  margin: 0 8px;
 }
 
 .break-btn:hover {

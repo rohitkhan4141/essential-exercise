@@ -1,0 +1,10 @@
+.DisplayExerciseInfo {
+  text-align: center;
+  margin-top: 80px;
+}
+.display-exercise-time {
+  background-color: rgba(255, 255, 255, 0.623);
+  padding: 10px;
+  margin: 10px 10px;
+  border-radius: 5px;
+}
