@@ -2,11 +2,13 @@ import { useEffect, useState } from "react";
 import "./App.css";
 import Exercise from "./components/Exercise/Exercise";
 import Sidebar from "./components/Sidebar/Sidebar";
+import { addToLocalStorage, getDataFromLocalStorage } from "./utilities/fakedb";
 
 function App() {
   // states
   const [exercises, setExercises] = useState([]);
   const [selectExerciseItems, setSelectExerciseItems] = useState([]);
+  const [breakTime, setBreakTime] = useState(0);
 
   //side effects
   useEffect(() => {
@@ -15,13 +17,27 @@ function App() {
       .then((data) => setExercises(data));
   }, []);
 
+  useEffect(() => {
+    const breakTime = getDataFromLocalStorage();
+    setBreakTime(breakTime);
+  }, []);
+
+  // click handlers
   const addToListHandlr = (selectedItems) => {
     setSelectExerciseItems([...selectExerciseItems, selectedItems]);
   };
+
+  const breakBtnHandlr = (selectedTime) => {
+    setBreakTime(selectedTime);
+    addToLocalStorage(selectedTime);
+  };
+
+  // exercise time calculation
   let exerciceTime = 0;
   for (const selectItem of selectExerciseItems) {
     exerciceTime = exerciceTime + selectItem.duration;
   }
+
   return (
     <div className='app'>
       <h1>Essential Exercises</h1>
@@ -36,7 +52,11 @@ function App() {
           ))}
         </div>
         {/* sidebar component */}
-        <Sidebar exerciceTime={exerciceTime} />
+        <Sidebar
+          exerciceTime={exerciceTime}
+          breakBtnHandlr={breakBtnHandlr}
+          breakTime={breakTime}
+        />
       </div>
     </div>
   );
