@@ -34,10 +34,21 @@
     margin: 0 auto;
     padding: 20px 0;
   }
+  .container {
+    gap: 50px;
+  }
+  .breaks-btns {
+    width: 50%;
+    margin: 0 auto;
+  }
 }
 
 @media only screen and (max-width: 768px) {
   .exercises {
     grid-template-columns: repeat(1, 1fr);
+  }
+  .breaks-btns {
+    width: 100%;
+    margin: 0 auto;
   }
 }

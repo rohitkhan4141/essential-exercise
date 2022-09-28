@@ -9,9 +9,16 @@
 .btns-container {
   margin-top: 80px;
   text-align: center;
-  padding: 0 15px;
+  padding: 0 5px;
 }
 .breaks-btns {
   display: flex;
   justify-content: space-between;
+}
+
+@media only screen and (max-width: 768px) {
+  .sidebar {
+    width: 300px;
+    margin: 0 auto;
+  }
 }
