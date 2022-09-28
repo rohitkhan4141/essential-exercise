@@ -1,23 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect, useState } from "react";
+import "./App.css";
+import Exercise from "./components/Exercise/Exercise";
+import Sidebar from "./components/Sidebar/Sidebar";
 
 function App() {
+  const [exercises, setExercises] = useState([]);
+  useEffect(() => {
+    fetch("activity.json")
+      .then((res) => res.json())
+      .then((data) => setExercises(data));
+  }, []);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>Essential exercise</h1>
+      <div>
+        <div className='exercises'>
+          {exercises.map((exercise) => (
+            <Exercise key={exercise.id} exercise={exercise} />
+          ))}
+        </div>
+        {/* sidebar component */}
+        <Sidebar />
+      </div>
     </div>
   );
 }
