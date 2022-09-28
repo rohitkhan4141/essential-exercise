@@ -5,3 +5,13 @@
   border-radius: 12px;
   border: 1px solid rgba(209, 213, 219, 0.3);
 }
+
+.btns-container {
+  margin-top: 60px;
+  text-align: center;
+  padding: 0 15px;
+}
+.breaks-btns {
+  display: flex;
+  justify-content: space-between;
+}

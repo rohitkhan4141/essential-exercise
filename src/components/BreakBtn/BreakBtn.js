@@ -1,7 +1,13 @@
 import React from "react";
+import "./BreakBtn.css";
 
-const BreakBtn = () => {
-  return <div>break btn compo</div>;
+const BreakBtn = (props) => {
+  const { duration } = props.break;
+  return (
+    <div className='break-btn'>
+      <h4>{duration}s</h4>
+    </div>
+  );
 };
 
 export default BreakBtn;

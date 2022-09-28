@@ -1,0 +1,10 @@
+.break-btn {
+  padding: 0 15px;
+  background-color: white;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.break-btn:hover {
+  background-color: #17b486;
+}
