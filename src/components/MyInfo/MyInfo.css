@@ -1,0 +1,11 @@
+.my-info {
+  text-align: center;
+  padding-top: 30px;
+  color: rgb(36, 7, 7);
+}
+.my-info img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  object-fit: contain;
+}
