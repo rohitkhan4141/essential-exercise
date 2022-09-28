@@ -11,9 +11,9 @@ function App() {
       .then((data) => setExercises(data));
   }, []);
   return (
-    <div>
-      <h1>Essential exercise</h1>
-      <div>
+    <div className='app'>
+      <h1>Essential Exercises</h1>
+      <div className='container'>
         <div className='exercises'>
           {exercises.map((exercise) => (
             <Exercise key={exercise.id} exercise={exercise} />
