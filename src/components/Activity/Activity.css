@@ -1,0 +1,60 @@
+.activity {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.activity h1 {
+  text-align: center;
+  color: white;
+  /* border: 3px solid white; */
+}
+.title {
+  margin-right: 5px;
+  font-size: 44px;
+}
+.container {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+.exercises {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+@media only screen and (max-width: 1300px) {
+  .exercises {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .container {
+    justify-content: space-around;
+  }
+}
+
+@media only screen and (max-width: 985px) {
+  .container {
+    flex-direction: column;
+    justify-content: space-around;
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px 0;
+  }
+  .container {
+    gap: 50px;
+  }
+  .breaks-btns {
+    width: 50%;
+    margin: 0 auto;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .exercises {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .breaks-btns {
+    width: 100%;
+    margin: 0 auto;
+  }
+}

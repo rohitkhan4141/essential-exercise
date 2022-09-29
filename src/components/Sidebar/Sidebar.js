@@ -4,7 +4,7 @@ import DisplayExerciseInfo from "../DisplayExerciseInfo/DisplayExerciseInfo";
 import MyInfo from "../MyInfo/MyInfo";
 import "./Sidebar.css";
 
-const Sidebar = ({ exerciceTime, breakBtnHandlr, breakTime }) => {
+const Sidebar = ({ exerciceTime, breakBtnHandlr, breakTime, notify }) => {
   const breaks = [
     {
       id: 1,
@@ -34,7 +34,11 @@ const Sidebar = ({ exerciceTime, breakBtnHandlr, breakTime }) => {
           ))}
         </div>
       </div>
-      <DisplayExerciseInfo exerciceTime={exerciceTime} breakTime={breakTime} />
+      <DisplayExerciseInfo
+        exerciceTime={exerciceTime}
+        breakTime={breakTime}
+        notify={notify}
+      />
     </div>
   );
 };

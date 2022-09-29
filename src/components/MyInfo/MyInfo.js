@@ -7,7 +7,7 @@ const MyInfo = () => {
     <div className='my-info'>
       <img src={logo} alt='' />
       <h3>Mostakin Ahmed Khan</h3>
-      <p>Full-stack Developer</p>
+      <p>Web Developer</p>
     </div>
   );
 };

@@ -1,65 +1,27 @@
-import { useEffect, useState } from "react";
+import React from "react";
 import "./App.css";
-import Exercise from "./components/Exercise/Exercise";
-import Sidebar from "./components/Sidebar/Sidebar";
-import { addToLocalStorage, getDataFromLocalStorage } from "./utilities/fakedb";
+import Activity from "./components/Activity/Activity";
 
-function App() {
-  // states
-  const [exercises, setExercises] = useState([]);
-  const [selectExerciseItems, setSelectExerciseItems] = useState([]);
-  const [breakTime, setBreakTime] = useState(0);
+// Importing toastify module
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import QAndA from "./components/QAndA/QAndA";
 
-  //side effects
-  useEffect(() => {
-    fetch("activity.json")
-      .then((res) => res.json())
-      .then((data) => setExercises(data));
-  }, []);
-
-  useEffect(() => {
-    const breakTime = getDataFromLocalStorage();
-    setBreakTime(breakTime);
-  }, []);
-
-  // click handlers
-  const addToListHandlr = (selectedItems) => {
-    setSelectExerciseItems([...selectExerciseItems, selectedItems]);
+const App = () => {
+  const notify = () => {
+    toast.success("You have completed Your Activity");
   };
-
-  const breakBtnHandlr = (selectedTime) => {
-    setBreakTime(selectedTime);
-    addToLocalStorage(selectedTime);
-  };
-
-  // exercise time calculation
-  let exerciceTime = 0;
-  for (const selectItem of selectExerciseItems) {
-    exerciceTime = exerciceTime + selectItem.duration;
-  }
 
   return (
-    <div className='app'>
-      <h1>Essential Exercises</h1>
-      <div className='container'>
-        <div className='exercises'>
-          {exercises.map((exercise) => (
-            <Exercise
-              key={exercise.id}
-              exercise={exercise}
-              addToListHandlr={addToListHandlr}
-            />
-          ))}
-        </div>
-        {/* sidebar component */}
-        <Sidebar
-          exerciceTime={exerciceTime}
-          breakBtnHandlr={breakBtnHandlr}
-          breakTime={breakTime}
-        />
+    <div>
+      <Activity notify={notify} />
+      <ToastContainer />
+      <div className='qna-container'>
+        <h2>Question And Answer</h2>
+        <QAndA />
       </div>
     </div>
   );
-}
+};
 
 export default App;
