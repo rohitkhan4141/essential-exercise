@@ -24,7 +24,11 @@ function Activity({ notify }) {
 
   useEffect(() => {
     const breakTime = getDataFromLocalStorage();
-    setBreakTime(breakTime);
+    if (breakTime) {
+      setBreakTime(breakTime);
+    } else {
+      setBreakTime(0);
+    }
   }, []);
 
   // click handlers
